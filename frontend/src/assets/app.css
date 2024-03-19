@@ -1,0 +1,12 @@
+header h1 {
+    padding: 10px 20px;
+  }
+  
+  body {
+    max-width: 970px !important;
+  }
+  
+  .container {
+    background-color: #100a04;
+    color: #d1cec2;
+  }
