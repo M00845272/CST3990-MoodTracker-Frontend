@@ -1,0 +1,31 @@
+[data-amplify-authenticator] {
+    --amplify-components-button-primary-background-color: #eba80b;
+    --amplify-components-button-primary-hover-background-color: #ad811b;
+    --amplify-components-button-primary-focus-background-color: #ad811b;
+    --amplify-components-button-primary-active-background-color:#eba80b;
+    --amplify-components-button-link-color: #eba80b;
+    --amplify-components-button-link-hover-color: #ad811b;
+    --amplify-components-button-link-focus-color: #ad811b;
+    --amplify-components-button-link-active-color: #eba80b;
+    --amplify-components-button-link-active-background-color: #eba80b;
+    --amplify-components-button-link-focus-background-color: #eba80b;
+    --amplify-components-button-link-hover-background-color: #ad811b;
+    --amplify-components-button-font-size:small;
+    --amplify-components-button-color:#181302;
+
+    .amplify-tabs__item {
+        font-size: small;
+    }
+    .amplify-tabs__item--active {
+        color: #eba80b;
+        border-color: #eba80b;
+    }
+
+    .amplify-heading {
+        color: var(--amplify-components-heading-color);
+        line-height: var(--amplify-components-heading-line-height);
+        display: block;
+        padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl);
+        font-size: larger;
+    }
+  }
