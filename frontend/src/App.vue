@@ -1,16 +1,7 @@
 <template>
     <div id="app">
         <header>
-            <div class="navbar navbar-expand-lg bg-dark navbar-dark app-header">
-                <div class="navbar-header">
-                    <h1>{{ sitename }}</h1>
-                </div>
-                <div class="nav navbar-nav navbar-right logout">
-                    <button type="button" class="btn btn-primary btn-lg" v-on:click="logout">
-                        Logout
-                    </button>
-                </div>
-            </div>
+            <Nav></Nav>
         </header>
         <main class="main">
             <component :is="currentView"></component>
@@ -33,24 +24,30 @@ const auth = useAuthenticator();
 
 import Authentication from "./components/Authentication.vue";
 import Home from "./components/Home.vue";
+import Nav from "./components/Nav.vue";
 
 export default {
     name: "App",
     data() {
         return {
-            sitename: "MoodTracker",
             session:null,
             //currentView:Authentication,
         }
     },
-    components: { Authentication, Home },
+    components: { Nav, Authentication, Home },
     methods :{
         logout() {
             auth.signOut();
         },
         async getSession() {
-            this.session = (await fetchAuthSession());
-            this.currentView = this.session.tokens.idToken ? Home : Authentication;
+            try{
+                this.session = (await fetchAuthSession());
+                this.currentView = this.session.tokens.idToken ? Home : Authentication;
+            }catch(e) {
+                this.currentView = Authentication;
+            }
+           
+            
             this.$forceUpdate();
         },
     },

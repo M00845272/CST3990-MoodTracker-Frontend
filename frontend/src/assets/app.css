@@ -1,48 +1,31 @@
-header h1 {
-    padding: 5px 5px;
-  }
-  
-  body {
-    max-width: 970px !important;
-  }
-  
-  .container {
-    background-color: #100a04;
-    /* color: #d1cec2; */
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    /* line-height: 1.5; */
-    /* font-weight: 400; */
-    place-items: center;
-    /* display: flex; */
-    min-width: 320px;
-    min-height: 100vh;
-  }
-  .main {
-        display: flex;
-        margin: 0;
-        align-items: center;
-        justify-content: center;
-  }
-  .app-header {
-    background-color: #343a40 !important;
-    color: #eba80b;
-    --mdb-navbar-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
-    --mdb-navbar-padding-top: 0.5625rem;
-    --mdb-navbar-brand-img-margin-right: 0.25rem;
-    box-shadow: var(--mdb-navbar-box-shadow);
-    padding-top: var(--mdb-navbar-padding-top);
-  }
-  
-  .btn-primary,
-  .btn-primary:hover,
-  .btn-primary:active,
-  .btn-primary:visited {
-    background-color: #eba80b !important;
-    border-color: #ac7b07 !important;
-    color: #100a04;
-  }
+body {
+     max-width: 970px !important;
+ }
 
-  .logout {
-    padding: 20px 20px;
-  }
-  
+ .container {
+     background-color: #100a04;
+     /* color: #d1cec2; */
+     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+     /* line-height: 1.5; */
+     /* font-weight: 400; */
+     place-items: center;
+     /* display: flex; */
+     min-width: 320px;
+     min-height: 100vh;
+ }
+
+ .main {
+     display: flex;
+     margin: 0;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .btn-primary,
+ .btn-primary:hover,
+ .btn-primary:active,
+ .btn-primary:visited {
+     background-color: #eba80b !important;
+     border-color: #ac7b07 !important;
+     color: #100a04;
+ }
