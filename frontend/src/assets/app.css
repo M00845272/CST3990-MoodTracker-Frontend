@@ -18,6 +18,10 @@ body {
      justify-content: center;
  }
 
+ .home {
+    width: 100%;
+ }
+
  .btn-primary,
  .btn-primary:hover,
  .btn-primary:active,

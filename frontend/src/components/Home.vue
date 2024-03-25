@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="home">
+    <div class="home">
+        <div>
             <div class="card">
                 <div class="card-header">Mood Trend</div>
                 <div class="card-body">
@@ -50,8 +50,6 @@ export default {
             }];
 
             var layout = {
-                height: 500,
-                width: 500,
                 showlegend: 'false',
                 displaylogo: 'false'
             };

@@ -1,10 +1,12 @@
 <template>
     <div id="app">
         <header>
-            <Nav></Nav>
+            <Nav @change-page="changePage"></Nav>
         </header>
         <main class="main">
-            <component :is="currentView"></component>
+            <Home  v-if="currentView=='Home'"></Home>
+            <Authentication  v-if="currentView=='Authentication'"></Authentication>
+            <MoodHistory  v-if="currentView=='MoodHistory'"></MoodHistory>
         </main>
     </div>
 </template>
@@ -15,8 +17,7 @@ import { Authenticator, useAuthenticator } from '@aws-amplify/ui-vue';
 import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 const { route, user, signOut } = toRefs(useAuthenticator());
-import { fetchAuthSession } from 'aws-amplify/auth'
-
+import { fetchAuthSession } from 'aws-amplify/auth';
 
 Amplify.configure(awsconfig);
 
@@ -25,31 +26,31 @@ const auth = useAuthenticator();
 import Authentication from "./components/Authentication.vue";
 import Home from "./components/Home.vue";
 import Nav from "./components/Nav.vue";
+import MoodHistory from "./components/MoodHistory.vue";
 
 export default {
     name: "App",
     data() {
         return {
             session:null,
-            //currentView:Authentication,
+            currentView:'',
         }
     },
-    components: { Nav, Authentication, Home },
+    components: { Nav, Authentication, Home, MoodHistory },
     methods :{
-        logout() {
-            auth.signOut();
-        },
         async getSession() {
             try{
                 this.session = (await fetchAuthSession());
-                this.currentView = this.session.tokens.idToken ? Home : Authentication;
+                this.currentView = this.session.tokens.idToken ? 'Home' : 'Authentication';
             }catch(e) {
-                this.currentView = Authentication;
+                this.currentView = 'Authentication';
             }
-           
-            
             this.$forceUpdate();
         },
+        changePage(page){
+            this.currentView = page;
+
+        }
     },
     computed: {
        // currentView() {    

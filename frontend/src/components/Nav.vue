@@ -21,11 +21,11 @@
         </nav>
         <!-- sidebar links -->
         <div id="mood-tracker-sidebar" class="sidebar">
-            <a href="./index.php">Home</a>
-            <a href="./leaderboard.php">Mood History</a>
-            <a href="./about.php">Settings</a>
-            <a href="./profile.php" id="profile_menu">My Profile</a>
-            <a href="#" onclick="return logout();" id="logout_menu">Logout</a>
+            <a href="#" @click="changePage('Home')">Home</a>
+            <a href="#" @click="changePage('MoodHistory')">Mood History</a>
+            <a href="#" @click="changePage('Settings')">Settings</a>
+            <a href="#" @click="changePage('Profile')">My Profile</a>
+            <a href="#" @click="changePage('Logout')">Logout</a>
         </div>
     </div>
 </template>
@@ -48,12 +48,18 @@ export default {
             document.getElementById("close-btn").style.display = "inline";
             document.getElementById("open-btn").style.display = "none";
         },
-
         closeNav() {
             document.getElementById("mood-tracker-sidebar").style.width = "0";
             document.getElementById("open-btn").style.display = "inline";
             document.getElementById("close-btn").style.display = "none";
-        }
+        },
+        changePage(page){
+            this.$emit("change-page", page);
+            this.closeNav();
+        },
+        logout() {
+            auth.signOut();
+        },
     },
 }
 </script>
